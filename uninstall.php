@@ -14,4 +14,6 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-// Do something here if plugin is being uninstalled.
+//drop a custom db table
+global $wpdb;
+$wpdb->query( "DROP TABLE IF EXISTS g_tooltips" );

@@ -48,7 +48,20 @@ function g_tool_tips_create_table()
 }
 /*=====  End of Creating database table  ======*/
 
+  register_activation_hook(__FILE__, 'g_tooltips_activate');
+add_action('admin_init', 'g_tooltips_redirect');
 
+function g_tooltips_activate() {
+    add_option('g_tooltips_do_activation_redirect', true);
+}
+
+function g_tooltips_redirect() {
+    if (get_option('g_tooltips_do_activation_redirect', false)) {
+        delete_option('g_tooltips_do_activation_redirect');
+         wp_redirect("options-general.php?page=g_tool_tips_settings");   
+         exit;
+    }
+}
 /*=================================================
 =            G-tooltip on deactivation            =
 =================================================*/
@@ -57,8 +70,6 @@ function g_tool_tips_create_table()
 
 
 /*=====  End of G-tooltip on deactivation  ======*/
-
-
 
 // Load plugin class files
 require_once( 'includes/class-g-tool-tips.php' );
