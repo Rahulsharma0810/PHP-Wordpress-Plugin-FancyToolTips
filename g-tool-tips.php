@@ -49,6 +49,16 @@ function g_tool_tips_create_table()
 /*=====  End of Creating database table  ======*/
 
 
+/*=================================================
+=            G-tooltip on deactivation            =
+=================================================*/
+
+/*----------  Pulling Out CSS and JS From Frontend (Automatically)  ----------*/
+
+
+/*=====  End of G-tooltip on deactivation  ======*/
+
+
 
 // Load plugin class files
 require_once( 'includes/class-g-tool-tips.php' );
