@@ -60,9 +60,7 @@
 
                     ],
                     onsubmit: function( e ) {
-                    editor.insertContent( 
-                        '<span class="tooltip-sharp tooltip-sharp-turn-"' + {e.data.text} + 
-                        '><span class="tooltip-sharp-item">' + e.data.text + '</span>' + '<span class="tooltip-sharp-content">' + e.data.tooltiptext + '</span>');
+                    editor.insertContent(e.data.text);
                     }
 
                 } );
