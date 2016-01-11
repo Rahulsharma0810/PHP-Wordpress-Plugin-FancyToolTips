@@ -1,4 +1,4 @@
-
+<script>
 ( function() {
     tinymce.PluginManager.add( 'fb_test', function( editor, url ) {
 
@@ -28,7 +28,7 @@
 ==============================================*/
 
                         {type: 'listbox', 
-                        name: 'style_type', 
+                        name: 'style', 
                         label: 'Tooltip Style', 
                         'values': [
                         {text: 'bloated', value: 'bloated'},
@@ -57,13 +57,10 @@
                         {text: 'Center', value: 'down'}
                         ]}
 /*=====  End of g-tooltip chosing direction  ======*/
-
                     ],
                     onsubmit: function( e ) {
-                    editor.insertContent( 
-                        '<span class="tooltip-sharp tooltip-sharp-turn-"' + {e.data.text} + 
-                        '><span class="tooltip-sharp-item">' + e.data.text + '</span>' + '<span class="tooltip-sharp-content">' + e.data.tooltiptext + '</span>');
-                    }
+                        editor.insertContent( '<span class="tooltip-sharp tooltip-sharp-turn' + e.data.direction + '"><span class="tooltip-sharp-item">' + e.data.text + '</span>' + '<span class="tooltip-sharp-content">' + e.data.tooltiptext + '</span>');
+                        }
 
                 } );
             }
@@ -72,3 +69,4 @@
     } );
 
 } )();
+</script>
