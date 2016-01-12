@@ -1,66 +1,3 @@
-	/*=============================================
-	=            Bloated CSS            =
-	=============================================*/
-	
-	
-Ï.g-tooltip-bloated {
-	display: inline;
-	position: relative;
-	z-index: 999;
-}
-
-.g-tooltip-bloated-content {Ï
-	position: absolute;
-	background: url(../img/shape1.svg) no-repeat center bottom;
-	background-size: 100% 100%;
-	z-index: 9999;
-	width: 200px;
-	bottom: 100%;
-	left: 50%;
-	margin-left: -100px;
-	padding: 50px 30px;
-	text-align: center;
-	color: #fff;
-	opacity: 0;
-	cursor: default;
-	font-size: 0.55em;
-	line-height: 1.4;
-	pointer-events: none;
-	font-family: 'Kalam', cursive;
-	-webkit-transform: scale3d(0.1,0.2,1);
-	transform: scale3d(0.1,0.2,1);
-	-webkit-transform-origin: 50% 120%;
-	transform-origin: 50% 120%;
-	-webkit-transition: opacity 0.4s, -webkit-transform 0.4s;
-	transition: opacity 0.4s, transform 0.4s;
-	-webkit-transition-timing-function: ease, cubic-bezier(0.6,0,0.4,1);
-	transition-timing-function: ease, cubic-bezier(0.6,0,0.4,1);
-}
-
-.g-tooltip-bloated:hover .g-tooltip-bloated-content {
-	opacity: 1;
-	pointer-events: auto;
-	-webkit-transform: scale3d(1,1,1);
-	transform: scale3d(1,1,1);
-}
-
-/* Arrow */
-
-.g-tooltip-bloated-content::after {
-	content: '';
-	position: absolute;
-	width: 16px;
-	height: 16px;
-	left: 50%;
-	margin-left: -8px;
-	top: 100%;
-	background: #00AEEF;
-	-webkit-transform: translate3d(0,-60%,0) rotate3d(0,0,1,45deg);
-	transform: translate3d(0,-60%,0) rotate3d(0,0,1,45deg);
-}
-
-	
-	/*=====  End of Bloated CSS  ======*/
 
 
  /*===============================
@@ -1004,16 +941,16 @@
 .g-tooltip-sharp-content {
 	position: absolute;
 	font-size: 16px;
-	background: #fff;
+	background: #3498db;
 	z-index: 9999;
 	width: 280px;
-	bottom: 100%;
+	bottom: 105%;
 	left: 50%;
 	margin: 0 0 105px -140px;
 	padding: 25px;
 	text-align: left;
 	border-radius: 10px/50%;
-	color: #dd5864;
+	color: #fff;
 	opacity: 0;
 	cursor: default;
 	pointer-events: none;
@@ -1045,8 +982,8 @@
 	position: absolute;
 	width: 60px;
 	height: 120px;
-	top: 100%;
-	background: url(../img/g-tooltip-sharp3.svg) no-repeat center center;
+	top: 105%;
+	background: url("../img/sharp/sharp.svg") no-repeat center center;
 	background-size: 100%;
 	-webkit-transform-origin: 50% 0;
 	transform-origin: 50% 0;

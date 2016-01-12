@@ -2,6 +2,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+
 class g_tool_tips {
 
 	/**
@@ -154,11 +155,16 @@ class g_tool_tips {
 	 * @since   1.0.0
 	 * @return void
 	 */
+
 	public function enqueue_styles () {
+
 		wp_register_style( $this->_token . '-frontend', esc_url( $this->assets_url ) . 'css/frontend.css', array(), $this->_version );
 		wp_enqueue_style( $this->_token . '-frontend' );
-		
 	} // End enqueue_styles ()
+
+
+
+
 
 
 	/**

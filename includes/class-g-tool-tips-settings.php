@@ -66,10 +66,10 @@ class g_tool_tips_Settings {
 	 * Add settings page to admin menu
 	 * @return void
 	 */
-	public function add_menu_item () {
-		$page = add_options_page( __( 'Plugin Settings', 'g-tool-tips' ) , __( 'Plugin Settings', 'g-tool-tips' ) , 'manage_options' , $this->parent->_token . '_settings' ,  array( $this, 'settings_page' ) );
-		add_action( 'admin_print_styles-' . $page, array( $this, 'settings_assets' ) );
-	}
+	// public function add_menu_item () {
+	// 	$page = add_options_page( __( 'Plugin Settings', 'g-tool-tips' ) , __( 'Plugin Settings', 'g-tool-tips' ) , 'manage_options' , $this->parent->_token . '_settings' ,  array( $this, 'settings_page' ) );
+	// 	add_action( 'admin_print_styles-' . $page, array( $this, 'settings_assets' ) );
+	// }
 
 	/**
 	 * Load settings JS & CSS
@@ -181,37 +181,37 @@ class g_tool_tips_Settings {
 			'title'					=> __( 'Extra', 'g-tool-tips' ),
 			'description'			=> __( 'These are some extra input fields that maybe aren\'t as common as the others.', 'g-tool-tips' ),
 			'fields'				=> array(
-				array(
-					'id' 			=> 'number_field',
-					'label'			=> __( 'A Number' , 'g-tool-tips' ),
-					'description'	=> __( 'This is a standard number field - if this field contains anything other than numbers then the form will not be submitted.', 'g-tool-tips' ),
-					'type'			=> 'number',
-					'default'		=> '',
-					'placeholder'	=> __( '42', 'g-tool-tips' )
-				),
+				// array(
+				// 	'id' 			=> 'number_field',
+				// 	'label'			=> __( 'A Number' , 'g-tool-tips' ),
+				// 	'description'	=> __( 'This is a standard number field - if this field contains anything other than numbers then the form will not be submitted.', 'g-tool-tips' ),
+				// 	'type'			=> 'number',
+				// 	'default'		=> '',
+				// 	'placeholder'	=> __( '42', 'g-tool-tips' )
+				// ),
 				array(
 					'id' 			=> 'colour_picker',
 					'label'			=> __( 'Pick a colour', 'g-tool-tips' ),
 					'description'	=> __( 'This uses WordPress\' built-in colour picker - the option is stored as the colour\'s hex code.', 'g-tool-tips' ),
 					'type'			=> 'color',
 					'default'		=> '#21759B'
-				),
-				array(
-					'id' 			=> 'an_image',
-					'label'			=> __( 'An Image' , 'g-tool-tips' ),
-					'description'	=> __( 'This will upload an image to your media library and store the attachment ID in the option field. Once you have uploaded an imge the thumbnail will display above these buttons.', 'g-tool-tips' ),
-					'type'			=> 'image',
-					'default'		=> '',
-					'placeholder'	=> ''
-				),
-				array(
-					'id' 			=> 'multi_select_box',
-					'label'			=> __( 'A Multi-Select Box', 'g-tool-tips' ),
-					'description'	=> __( 'A standard multi-select box - the saved data is stored as an array.', 'g-tool-tips' ),
-					'type'			=> 'select_multi',
-					'options'		=> array( 'linux' => 'Linux', 'mac' => 'Mac', 'windows' => 'Windows' ),
-					'default'		=> array( 'linux' )
 				)
+				// array(
+				// 	'id' 			=> 'an_image',
+				// 	'label'			=> __( 'An Image' , 'g-tool-tips' ),
+				// 	'description'	=> __( 'This will upload an image to your media library and store the attachment ID in the option field. Once you have uploaded an imge the thumbnail will display above these buttons.', 'g-tool-tips' ),
+				// 	'type'			=> 'image',
+				// 	'default'		=> '',
+				// 	'placeholder'	=> ''
+				// ),
+				// array(
+				// 	'id' 			=> 'multi_select_box',
+				// 	'label'			=> __( 'A Multi-Select Box', 'g-tool-tips' ),
+				// 	'description'	=> __( 'A standard multi-select box - the saved data is stored as an array.', 'g-tool-tips' ),
+				// 	'type'			=> 'select_multi',
+				// 	'options'		=> array( 'linux' => 'Linux', 'mac' => 'Mac', 'windows' => 'Windows' ),
+				// 	'default'		=> array( 'linux' )
+				// )
 			)
 		);
 
@@ -274,69 +274,7 @@ class g_tool_tips_Settings {
 	 * Load settings page content
 	 * @return void
 	 */
-	public function settings_page () {
 
-		// Build page HTML
-		$html = '<div class="wrap" id="' . $this->parent->_token . '_settings">' . "\n";
-			$html .= '<h2>' . __( 'Plugin Settings' , 'g-tool-tips' ) . '</h2>' . "\n";
-
-			$tab = '';
-			if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
-				$tab .= $_GET['tab'];
-			}
-
-			// Show page tabs
-			if ( is_array( $this->settings ) && 1 < count( $this->settings ) ) {
-
-				$html .= '<h2 class="nav-tab-wrapper">' . "\n";
-
-				$c = 0;
-				foreach ( $this->settings as $section => $data ) {
-
-					// Set tab class
-					$class = 'nav-tab';
-					if ( ! isset( $_GET['tab'] ) ) {
-						if ( 0 == $c ) {
-							$class .= ' nav-tab-active';
-						}
-					} else {
-						if ( isset( $_GET['tab'] ) && $section == $_GET['tab'] ) {
-							$class .= ' nav-tab-active';
-						}
-					}
-
-					// Set tab link
-					$tab_link = add_query_arg( array( 'tab' => $section ) );
-					if ( isset( $_GET['settings-updated'] ) ) {
-						$tab_link = remove_query_arg( 'settings-updated', $tab_link );
-					}
-
-					// Output tab
-					$html .= '<a href="' . $tab_link . '" class="' . esc_attr( $class ) . '">' . esc_html( $data['title'] ) . '</a>' . "\n";
-
-					++$c;
-				}
-
-				$html .= '</h2>' . "\n";
-			}
-
-			$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . "\n";
-
-				// Get settings fields
-				ob_start();
-				settings_fields( $this->parent->_token . '_settings' );
-				do_settings_sections( $this->parent->_token . '_settings' );
-				$html .= ob_get_clean();
-
-				$html .= '<p class="submit">' . "\n";
-					$html .= '<input type="hidden" name="tab" value="' . esc_attr( $tab ) . '" />' . "\n";
-					$html .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Save Settings' , 'g-tool-tips' ) ) . '" />' . "\n";
-				$html .= '</p>' . "\n";
-			$html .= '</form>' . "\n";
-		$html .= '</div>' . "\n";
-
-		echo $html;
-	}
 
 	/**
 	 * Main g_tool_tips_Settings Instance

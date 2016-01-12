@@ -48,9 +48,6 @@ function g_tool_tips_create_table()
 }
 /*=====  End of Creating database table  ======*/
 
-/*===========================================================
-=            Redirect On Setting Page activation            =
-===========================================================*/
   register_activation_hook(__FILE__, 'g_tooltips_activate');
 add_action('admin_init', 'g_tooltips_redirect');
 
@@ -65,9 +62,6 @@ function g_tooltips_redirect() {
          exit;
     }
 }
-
-/*=====  End of Redirect On Setting Page activation  ======*/
-
 /*=================================================
 =            G-tooltip on deactivation            =
 =================================================*/
@@ -135,8 +129,6 @@ function fb_add_tinymce() {
 }
 
 /*=====  End of Adding Button to Tinymce Editor  ======*/
-
-
 
 /*=========================================
 =            Hooks Sweet Hooks            =
