@@ -20,11 +20,22 @@
                         name: 'tip',
                         label: 'Tooltip Text' 
                         },
+
+                        {type: 'listbox', 
+                        name: 'align', 
+                        label: 'align', 
+                        'values': [
+                            {text: 'Left', value: 'left'},
+                            {text: 'Right', value: 'right'},
+                         ]
+                        }
+
                         ],
+
 
 onsubmit: function( e ) {
         editor.insertContent(
-            '<span class="g-tooltip-sharp g-tooltip-sharp-turnright"><span class="g-tooltip-sharp-item">' + e.data.text + '</span><span class="g-tooltip-sharp-content">' + e.data.tip + '</span></span>' );
+            '<span class="g-tooltip-sharp g-tooltip-sharp-turn' + e.data.align + '"><span class="g-tooltip-sharp-item">' + e.data.text + '</span><span class="g-tooltip-sharp-content">' + e.data.tip + '</span></span>' );
       }
                 } );
 

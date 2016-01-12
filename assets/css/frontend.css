@@ -1,4 +1,7 @@
-
+@font-face {
+font-family: reef;
+src: url("../fonts/Reef.otf") format("opentype");
+}
 
  /*===============================
  =            box css            =
@@ -939,8 +942,11 @@
 }
 
 .g-tooltip-sharp-content {
+	visibility: visible !important;
 	position: absolute;
-	font-size: 16px;
+	font-size: 20px;
+	font-weight: 500;
+	font-family: Reef;
 	background: #3498db;
 	z-index: 9999;
 	width: 280px;
