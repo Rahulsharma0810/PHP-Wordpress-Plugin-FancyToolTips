@@ -1,9 +1,9 @@
 ( function() {
-    tinymce.PluginManager.add( 'fb_test', function( editor, url ) {
+    tinymce.PluginManager.add( 'button1', function( editor, url ) {
 
         // Add a button that opens a window
         editor.addButton( 'fb_test_button_key', {
-            title: 'G-Tooltip1 (Arrow + Box)',
+            title: 'G-Tooltip 5 (Sharp)',
             image: '../wp-content/plugins/g-tool-tips/assets/img/sharp/sharp.png',
             onclick: function() {
 
@@ -18,24 +18,29 @@
                         {
                         type: 'textbox',
                         name: 'tip',
-                        label: 'Tooltip Text' 
+                        label: 'Tooltip Text (180 char)' 
                         },
 
                         {type: 'listbox', 
                         name: 'align', 
-                        label: 'align', 
+                        label: 'Align', 
                         'values': [
                             {text: 'Left', value: 'left'},
                             {text: 'Right', value: 'right'},
                          ]
-                        }
+                        },
+
+                         {
+                    type   : 'container',
+                    name   : 'container',
+                    label  : '',
+                    html   : 'SEE <a href="http://www.google.com"> Live Demo & How TO</a>'
+                },
 
                         ],
-
-
 onsubmit: function( e ) {
         editor.insertContent(
-            '<span class="g-tooltip-sharp g-tooltip-sharp-turn' + e.data.align + '"><span class="g-tooltip-sharp-item">' + e.data.text + '</span><span class="g-tooltip-sharp-content">' + e.data.tip + '</span></span>' );
+            '<span class="g-tooltip-sharp g-tooltip-sharp-turn' + e.data.align + '"><span class="g-tooltip-sharp-item">' + e.data.text + ' ' + '</span><span class="g-tooltip-sharp-content">' + e.data.tip + '</span></span>' );
       }
                 } );
 

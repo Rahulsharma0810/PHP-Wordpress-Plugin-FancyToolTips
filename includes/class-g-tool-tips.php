@@ -160,12 +160,9 @@ class g_tool_tips {
 
 		wp_register_style( $this->_token . '-frontend', esc_url( $this->assets_url ) . 'css/frontend.css', array(), $this->_version );
 		wp_enqueue_style( $this->_token . '-frontend' );
+			wp_register_style( $this->_token . '-g-icon.min', esc_url( $this->assets_url ) . 'css/gicon.css', array(), $this->_version );
+			wp_enqueue_style( $this->_token . '-g-icon.min' );
 	} // End enqueue_styles ()
-
-
-
-
-
 
 	/**
 	 * Load frontend Javascript.

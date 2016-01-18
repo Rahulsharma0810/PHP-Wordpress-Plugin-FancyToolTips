@@ -24,44 +24,8 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-/*===============================================
-=            Creating database table            =
-===============================================*/
 
-function g_tool_tips_create_table()
-{
-        // do NOT forget this global
-    global $wpdb;
- 
-    // this if statement makes sure that the table doe not exist already
-    if($wpdb->get_var("show tables like g_tooltips") != 'g_tooltips') 
-    {
-        $sql = "CREATE TABLE g_tooltips (
-        id mediumint(9) NOT NULL AUTO_INCREMENT,
-        one_column tinytext NOT NULL,
-        another_column tinytext NOT NULL,
-        UNIQUE KEY id (id)
-        );";
-        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-        dbDelta($sql);
-    }
-}
-/*=====  End of Creating database table  ======*/
 
-  register_activation_hook(__FILE__, 'g_tooltips_activate');
-add_action('admin_init', 'g_tooltips_redirect');
-
-function g_tooltips_activate() {
-    add_option('g_tooltips_do_activation_redirect', true);
-}
-
-function g_tooltips_redirect() {
-    if (get_option('g_tooltips_do_activation_redirect', false)) {
-        delete_option('g_tooltips_do_activation_redirect');
-         wp_redirect("options-general.php?page=g_tool_tips_settings");   
-         exit;
-    }
-}
 /*=================================================
 =            G-tooltip on deactivation            =
 =================================================*/
@@ -118,7 +82,7 @@ function fb_add_tinymce() {
 
 // Inlcude the JS for TinyMCE
     function fb_add_tinymce_plugin( $plugin_array ) {
-    $plugin_array['fb_test'] = plugins_url( 'assets/js/button/button.js', __FILE__ );
+    $plugin_array['button1'] = plugins_url( 'assets/js/button/button1.js', __FILE__ );
     return $plugin_array;
 }
 
@@ -130,6 +94,105 @@ function fb_add_tinymce() {
 
 /*=====  End of Adding Button to Tinymce Editor  ======*/
 
+
+
+
+/*=======================================================
+=            Adding Button 2 to Tinymce Editor            =
+=======================================================*/
+
+add_action( 'init', 'g_tooltips_button2' );
+function g_tooltips_button2() {
+    add_filter( "mce_external_plugins", "g_tooltip_add_button2" );
+    add_filter( 'mce_buttons', 'g_tooltips_register_buttons2' );
+}
+function g_tooltip_add_button2( $plugin_array ) {
+    $plugin_array['button2'] = plugins_url( 'assets/js/button/button2.js', __FILE__ );
+    return $plugin_array;
+}
+// Add the button key for address via JS
+    function g_tooltips_register_buttons2( $buttons ) {
+    array_push( $buttons, 'g_tooltips_call_button2' );
+    return $buttons;
+}
+
+/*=====  End of Adding Button to Tinymce Editor  ======*/
+
+
+
+
+/*=======================================================
+=            Adding Button 3 to Tinymce Editor            =
+=======================================================*/
+
+add_action( 'init', 'g_tooltips_button3' );
+function g_tooltips_button3() {
+    add_filter( "mce_external_plugins", "g_tooltip_add_button3" );
+    add_filter( 'mce_buttons', 'g_tooltips_register_buttons3' );
+}
+function g_tooltip_add_button3( $plugin_array ) {
+    $plugin_array['button3'] = plugins_url( 'assets/js/button/button3.js', __FILE__ );
+    return $plugin_array;
+
+}
+// Add the button key for address via JS
+    function g_tooltips_register_buttons3( $buttons ) {
+    array_push( $buttons, 'g_tooltips_call_button3' );
+    return $buttons;
+}
+
+/*=====  End of Adding Button to Tinymce Editor  ======*/
+
+
+
+/*=======================================================
+=            Adding Button 5 to Tinymce Editor            =
+=======================================================*/
+
+add_action( 'init', 'g_tooltips_button5' );
+function g_tooltips_button5() {
+    add_filter( "mce_external_plugins", "g_tooltip_add_button5" );
+    add_filter( 'mce_buttons', 'g_tooltips_register_buttons5' );
+}
+function g_tooltip_add_button5( $plugin_array ) {
+    $plugin_array['button5'] = plugins_url( 'assets/js/button/button5.js', __FILE__ );
+    return $plugin_array;
+    var_dump($plugin_array);
+}
+// Add the button key for address via JS
+    function g_tooltips_register_buttons5( $buttons ) {
+    array_push( $buttons, 'g_tooltips_call_button5' );
+    return $buttons;
+    var_dump($buttons);
+}
+
+/*=====  End of Adding Button to Tinymce Editor  ======*/
+
+/*=======================================================
+=            Adding Button 5 to Tinymce Editor            =
+=======================================================*/
+
+add_action( 'init', 'g_tooltips_button6' );
+function g_tooltips_button6() {
+    add_filter( "mce_external_plugins", "g_tooltip_add_button6" );
+    add_filter( 'mce_buttons', 'g_tooltips_register_buttons6' );
+}
+function g_tooltip_add_button6( $plugin_array ) {
+    $plugin_array['button6'] = plugins_url( 'assets/js/button/button6.js', __FILE__ );
+    return $plugin_array;
+    var_dump($plugin_array);
+}
+// Add the button key for address via JS
+    function g_tooltips_register_buttons6( $buttons ) {
+    array_push( $buttons, 'g_tooltips_call_button6' );
+    return $buttons;
+    var_dump($buttons);
+}
+
+/*=====  End of Adding Button to Tinymce Editor  ======*/
+
+
+
 /*=========================================
 =            Hooks Sweet Hooks            =
 =========================================*/
@@ -137,7 +200,6 @@ function fb_add_tinymce() {
 
 /*----------  Subsection Hook For Crating Table  ----------*/
 
-register_activation_hook( __FILE__, 'g_tool_tips_create_table' );
 
 /*=====  End of Hooks Sweet Hooks  ======*/
 

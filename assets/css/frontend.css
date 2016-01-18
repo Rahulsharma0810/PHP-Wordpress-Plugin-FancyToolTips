@@ -39,10 +39,10 @@ src: url("../fonts/Reef.otf") format("opentype");
 	z-index: 99;
 	width: 360px;
 	left: 50%;
-	margin-left: -180px;
-	bottom: -5px;
+	margin-left: -150px;
+	bottom: 20px;
 	text-align: left;
-	background: #2fa0ec;
+	background: #2FEC95;
 	opacity: 0;
 	font-size: 0.75em;
 	line-height: 1.5;
@@ -52,7 +52,7 @@ src: url("../fonts/Reef.otf") format("opentype");
 	cursor: default;
 	pointer-events: none;
 	border-radius: 5px;
-	font-family: 'Indie Flower', cursive;
+	font-family: Reef;
 	-webkit-transform: translate3d(0,-0.5em,0);
 	transform: translate3d(0,-0.5em,0);
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
@@ -86,8 +86,7 @@ src: url("../fonts/Reef.otf") format("opentype");
  /*===============================
  =            classic          =
  ===============================*/
- 
- .g-tooltip-classic {
+.g-tooltip-classic {
 	display: inline;
 	position: relative;
 	z-index: 999;
@@ -124,6 +123,7 @@ src: url("../fonts/Reef.otf") format("opentype");
 /* g-tooltip-classic */
 
 .g-tooltip-classic-content {
+	font-family: Reef;
 	position: absolute;
 	z-index: 9999;
 	width: 360px;
@@ -131,7 +131,7 @@ src: url("../fonts/Reef.otf") format("opentype");
 	margin: 0 0 20px -180px;
 	bottom: 100%;
 	text-align: left;
-	font-size: 0.765em;
+	font-size: 15px;
 	line-height: 1.4;
 	box-shadow: -5px -5px 15px rgba(48,54,61,0.2);
 	background: #2a3035;
@@ -218,14 +218,14 @@ src: url("../fonts/Reef.otf") format("opentype");
 
 .g-tooltip-classic-content img {
 	position: relative;
-	height: 170px;
+	height: 178px;
 	display: block;
 	float: left;
 	margin-right: 1em;
 }
 
 .g-tooltip-classic-text {
-	font-size: 0.68em;
+	font-size: 15px;
 	line-height: 1.35;
 	display: block;
 	padding: 1.31em 1.21em 1.21em 0;
@@ -240,14 +240,15 @@ src: url("../fonts/Reef.otf") format("opentype");
 	font-weight: bold;
 }
 
- 
+
  /*=====  End of classic======*/
 
  /*===============================
  =            curved css            =
  ===============================*/
  
- .g-tooltip-curved {
+
+.tooltip {
 	position: absolute;
 	z-index: 999;
 	width: 2.2em;
@@ -257,7 +258,7 @@ src: url("../fonts/Reef.otf") format("opentype");
 
 /* Trigger item */
 
-.g-tooltip-curved-item {
+.tooltip-item {
 	width: 30px;
 	height: 30px;
 	left: 50%;
@@ -280,33 +281,33 @@ src: url("../fonts/Reef.otf") format("opentype");
 	to { -webkit-transform: scale3d(1,1,1); transform: scale3d(1,1,1); }
 }
 
-.g-tooltip-curved:hover .g-tooltip-curved-item {
+.tooltip:hover .tooltip-item {
 	border-color: #fff;
 }
 
-.g-tooltip-curved:first-child {
+.tooltip:first-child {
 	top: 20%;
 	left: 20%;
 }
 
-.g-tooltip-curved:nth-child(2) {
+.tooltip:nth-child(2) {
 	top: 50%;
 	left: 10%;
 }
 
-.g-tooltip-curved:nth-child(3) {
+.tooltip:nth-child(3) {
 	top: 40%;
 	left: 50%;
 }
 
-.g-tooltip-curved:nth-child(4) {
+.tooltip:nth-child(4) {
 	top: 70%;
 	left: 70%;
 }
 
-/* g-tooltip-curved */
+/* Tooltip */
 
-.g-tooltip-curved-content {
+.tooltip-content {
 	position: absolute;
 	background: #e35583;
 	z-index: 9999;
@@ -327,7 +328,7 @@ src: url("../fonts/Reef.otf") format("opentype");
 	transition: opacity 0.3s, transform 0.3s;
 }
 
-.g-tooltip-curved-west .g-tooltip-curved-content {
+.tooltip-west .tooltip-content {
 	left: 4em;
 	-webkit-transform-origin: -2em 50%;
 	transform-origin: -2em 50%;
@@ -335,7 +336,7 @@ src: url("../fonts/Reef.otf") format("opentype");
 	transform: translate3d(0,50%,0) rotate3d(1,1,1,30deg);
 }
 
-.g-tooltip-curved-east .g-tooltip-curved-content {
+.tooltip-east .tooltip-content {
 	right: 4em;
 	-webkit-transform-origin: calc(100% + 2em) 50%;
 	transform-origin: calc(100% + 2em) 50%;
@@ -343,7 +344,7 @@ src: url("../fonts/Reef.otf") format("opentype");
 	transform: translate3d(0,50%,0) rotate3d(1,1,1,-30deg);
 }
 
-.g-tooltip-curved:hover .g-tooltip-curved-content {
+.tooltip:hover .tooltip-content {
 	opacity: 1;
 	-webkit-transform: translate3d(0,50%,0) rotate3d(0,0,0,0);
 	transform: translate3d(0,50%,0) rotate3d(0,0,0,0);
@@ -352,181 +353,43 @@ src: url("../fonts/Reef.otf") format("opentype");
 
 /* Gap "bridge" and arrow */
 
-.g-tooltip-curved-content::before,
-.g-tooltip-curved-content::after {
+.tooltip-content::before,
+.tooltip-content::after {
 	content: '';
 	position: absolute;
 }
 
-.g-tooltip-curved-content::before {
+.tooltip-content::before {
 	height: 100%;
 	width: 3em;
 }
 
-.g-tooltip-curved-content::after {
+.tooltip-content::after {
 	width: 2em;
 	height: 2em;
 	top: 50%;
 	margin: -1em 0 0;
-	background: url(../img/g-tooltip-curved2.svg) no-repeat center center;
+	background: url(../img/tooltip2.svg) no-repeat center center;
 	background-size: 100%;
 }
 
-.g-tooltip-curved-west .g-tooltip-curved-content::before,
-.g-tooltip-curved-west .g-tooltip-curved-content::after {
+.tooltip-west .tooltip-content::before,
+.tooltip-west .tooltip-content::after {
 	right: 99%; /* because of FF, otherwise we have a gap */
 }
 
-.g-tooltip-curved-east .g-tooltip-curved-content::before,
-.g-tooltip-curved-east .g-tooltip-curved-content::after {
+.tooltip-east .tooltip-content::before,
+.tooltip-east .tooltip-content::after {
 	left: 99%; /* because of FF, otherwise we have a gap */
 }
 
-.g-tooltip-curved-east .g-tooltip-curved-content::after {
+.tooltip-east .tooltip-content::after {
 	-webkit-transform: scale3d(-1,1,1);
 	transform: scale3d(-1,1,1);
 }
- 
  /*=====  End of curved css  ======*/
 
 
-
- 	/*=============================================
- 	=            Section comic            =
- 	=============================================*/
- 	
- 	.g-tooltip-comic {
-	position: relative;
-	width: 210px;
-	margin: 0 auto;
-	font-family: 'Bangers', cursive;
-}
-
-.g-tooltip-comic-content {
-	position: absolute;
-	line-height: 1.2;
-	pointer-events: none;
-	text-align: center;
-	z-index: 100;
-	opacity: 0;
-	padding: 1.75em;
-	font-size: 1.05em;
-	bottom: 100%;
-}
-
-.g-tooltip-comic-effect-1 .g-tooltip-comic-content {
-	width: 180px;
-	right: 83%;
-	margin: 0 0 20px 0;
-	-webkit-transform: scale3d(0,0,1);
-	transform: scale3d(0,0,1);
-	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-	transition: opacity 0.3s, transform 0.3s;
-}
-
-.g-tooltip-comic-effect-2 .g-tooltip-comic-content {
-	width: 220px;
-	left: 50%;
-	margin: 0 0 40px -110px;
-	-webkit-transform: translate3d(0,-10px,0);
-	transform: translate3d(0,-10px,0);
-	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-	transition: opacity 0.3s, transform 0.3s;
-}
-
-.g-tooltip-comic-effect-1:hover .g-tooltip-comic-content {
-	opacity: 1;
-	-webkit-transform: scale3d(1,1,1);
-	transform: scale3d(1,1,1);
-	-webkit-transition-delay: 0.15s;
-	transition-delay: 0.15s;
-}
-
-.g-tooltip-comic-effect-2:hover .g-tooltip-comic-content {
-	opacity: 1;
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-	-webkit-transition-delay: 0.2s;
-	transition-delay: 0.2s;
-}
-
-/* Shape */
-.g-tooltip-comic-shape {
-	position: absolute;
-	width: 220px;
-	height: 165px;
-	pointer-events: none;
-}
-
-.g-tooltip-comic-effect-1 .g-tooltip-comic-shape {
-	top: 0;
-	right: 65%;
-	-webkit-transform: translate3d(0,-90%,0);
-	transform: translate3d(0,-90%,0);
-}
-
-.g-tooltip-comic-effect-2 .g-tooltip-comic-shape {
-	bottom: 100%;
-	left: 50%;
-	margin: 0 0 0 -110px;
-}
-
-.g-tooltip-comic:hover .g-tooltip-comic-shape {
-	pointer-events: auto;
-}
-
-.g-tooltip-comic-shape svg {
-	stroke: #e74c3c;
-	stroke-width: 2;
-}
-
-.g-tooltip-comic-effect-1 .g-tooltip-comic-shape svg path {
-	fill: #fff;
-	opacity: 0;
-	-webkit-transform: scale3d(0,0,1);
-	transform: scale3d(0,0,1);
-	-webkit-transform-origin: 50% 50%;
-	transform-origin: 50% 50%;
-	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-	transition: opacity 0.3s, transform 0.3s;
-}
-
-.g-tooltip-comic-effect-1:hover .g-tooltip-comic-shape svg path {
-	opacity: 1;
-	-webkit-transform: scale3d(1,1,1);
-	transform: scale3d(1,1,1);
-}
-
-.g-tooltip-comic-effect-1:hover .g-tooltip-comic-shape svg path#path2 {
-	-webkit-transition-delay: 0.07s;
-	transition-delay: 0.07s;
-}
-
-.g-tooltip-comic-effect-1:hover .g-tooltip-comic-shape svg path#path3 {
-	-webkit-transition-delay: 0.14s;
-	transition-delay: 0.14s;
-}
-
-.g-tooltip-comic-effect-1:hover .g-tooltip-comic-shape svg path#path4 {
-	-webkit-transition-delay: 0.21s;
-	transition-delay: 0.21s;
-}
-
-.g-tooltip-comic-effect-2 .g-tooltip-comic-shape svg polygon {
-	fill: transparent;
-	stroke-dasharray: 580;
-	stroke-dashoffset: 580;
-}
-
-.g-tooltip-comic-effect-2:hover .g-tooltip-comic-shape svg polygon {
-	stroke-dashoffset: 0;
-	fill: #fff;
-	-webkit-transition: stroke-dashoffset 0.8s, fill 0.8s;
-	transition: stroke-dashoffset 0.8s, fill 0.8s;
-}
- 	
- 	/*=====  End of Section comic  ======*/
- 	
 
  /*===============================
  =            flip            =
@@ -694,6 +557,7 @@ src: url("../fonts/Reef.otf") format("opentype");
 /* g-tooltip-line */
 
 .g-tooltip-line-content {
+	font-family: Reef;
 	position: absolute;
 	z-index: 9999;
 	width: 300px;
@@ -703,14 +567,12 @@ src: url("../fonts/Reef.otf") format("opentype");
 	line-height: 1.4;
 	text-align: center;
 	font-weight: 400;
-	color: #fffaf0;
+	color: #fff;
 	background: transparent;
 	opacity: 0;
 	margin: 0 0 20px -150px;
 	cursor: default;
 	pointer-events: none;
-	font-family: 'Satisfy', cursive;
-	-webkit-font-smoothing: antialiased;
 	-webkit-transition: opacity 0.3s 0.3s;
 	transition: opacity 0.3s 0.3s;
 }
@@ -724,10 +586,12 @@ src: url("../fonts/Reef.otf") format("opentype");
 
 .g-tooltip-line-content span {
 	display: block;
+	font-size: 21px !important;
+    line-height: 29px !important;
 }
 
 .g-tooltip-line-text {
-	border-bottom: 10px solid #fffaf0;
+	border-bottom: 10px solid #22313F;
 	overflow: hidden;
 	-webkit-transform: scale3d(0,1,1);
 	transform: scale3d(0,1,1);
@@ -743,7 +607,7 @@ src: url("../fonts/Reef.otf") format("opentype");
 }
 
 .g-tooltip-line-inner {
-	background: rgba(85,61,61,0.95);
+	background: #22A7F0;
 	padding: 40px;
 	-webkit-transform: translate3d(0,100%,0);
 	transform: translate3d(0,100%,0);
@@ -792,20 +656,21 @@ src: url("../fonts/Reef.otf") format("opentype");
 /* g-tooltip-round */
 
 .g-tooltip-round-content {
+	font-family: Reef;
 	position: absolute;
 	z-index: 9999;
 	width: 80px;
 	height: 80px;
-	padding-top: 25px;
+	padding-top: 8px;
 	left: 50%;
-	margin-left: -40px;
+	margin-left: 0px;
 	bottom: 100%;
 	border-radius: 50%;
 	text-align: center;
-	background: #fff;
-	color: #47c9af;
+	background: #3498db;
+	color: #fff;
 	opacity: 0;
-	margin-bottom: 20px;
+	margin-bottom: -20px;
 	cursor: default;
 	pointer-events: none;
 }
@@ -917,7 +782,7 @@ src: url("../fonts/Reef.otf") format("opentype");
 	margin: -7px 0 0 -15px;
 	width: 30px;
 	height: 20px;
-	background: url(../img/g-tooltip-round1.svg) no-repeat center center;
+	background: url(../img/round/round.svg) no-repeat center center;
 	background-size: 100%;
 
 }
@@ -942,7 +807,6 @@ src: url("../fonts/Reef.otf") format("opentype");
 }
 
 .g-tooltip-sharp-content {
-	visibility: visible !important;
 	position: absolute;
 	font-size: 20px;
 	font-weight: 500;
@@ -1020,4 +884,105 @@ src: url("../fonts/Reef.otf") format("opentype");
 }
  
  /*=====  End of sharp css  ======*/
+
+
+.tt-wrapper{
+	padding: 0;
+	width: 435px;
+	height: 70px;
+	margin: 80px auto 30px auto;
+}
+.tt-wrapper li{
+	float: left;
+}
+.tt-wrapper li a{
+	display: block;
+	width: 68px;
+	height: 70px;
+	margin: 0 2px;
+	outline: none;
+	background: transparent url(../images/growcase_the_social_gunman_icons.png) no-repeat top left;
+	text-indent: -9000px;
+	position: relative;
+}
+.tt-wrapper li .tt-gplus{
+    background-position: 0px 0px;
+}
+.tt-wrapper li .tt-twitter{
+    background-position: -68px 0px;
+}
+.tt-wrapper li .tt-dribbble{
+    background-position: -136px 0px;
+}
+.tt-wrapper li .tt-facebook{
+    background-position: -204px 0px;
+}
+.tt-wrapper li .tt-linkedin{
+    background-position: -272px 0px;
+}
+.tt-wrapper li .tt-forrst{
+    background-position: -340px 0px;
+}
+.tt-wrapper li a span{
+	width: 100px;
+	height: auto;
+	line-height: 20px;
+	padding: 10px;
+	left: 50%;
+	margin-left: -64px;
+	font-family: 'Alegreya SC', Georgia, serif;
+	font-weight: 400;	
+	font-style: italic;
+	font-size: 14px;
+	color: #719DAB;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	border: 4px solid #fff;
+	background: rgba(255,255,255,0.3);
+	text-indent: 0px;
+	border-radius: 5px;
+	position: absolute;
+	bottom: 70px;
+	opacity: 0;
+	visibility: visible;
+	pointer-events: none;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+	-webkit-transform: translate(35px) rotate(25deg) scale(1.5);
+	-moz-transform: translate(35px) rotate(25deg) scale(1.5);
+	-o-transform: translate(35px) rotate(25deg) scale(1.5);
+	-ms-transform: translate(35px) rotate(25deg) scale(1.5);
+	transform: translate(35px) rotate(25deg) scale(1.5);
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.tt-wrapper li a span:before,
+.tt-wrapper li a span:after{
+	content: '';
+	position: absolute;
+	bottom: -15px;
+	left: 50%;
+	margin-left: -9px;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid rgba(0,0,0,0.1);
+}
+.tt-wrapper li a span:after{
+	bottom: -14px;
+	margin-left: -10px;
+	border-top: 10px solid #fff;
+}
+.tt-wrapper li a:hover span{
+	visibility: visible;
+	opacity: 0.9;
+	-webkit-transform: translate(0px) rotate(0deg) scale(1);
+	-moz-transform: translate(0px) rotate(0deg) scale(1);
+	-o-transform: translate(0px) rotate(0deg) scale(1);
+	-ms-transform: translate(0px) rotate(0deg) scale(1);
+	transform: translate(0px) rotate(0deg) scale(1);
+}
 
